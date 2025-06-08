@@ -275,6 +275,14 @@
     </dependencies>
 
     <build>
+
+        <resources>
+            <resource>
+            <directory>src/main/resources</directory>
+            <!-- 解决yml配置 @spring.profiles.active@ 时编译后没有生成对应环境的问题 -->
+            <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -329,4 +337,31 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <profiles>
+        <profile>
+            <!-- 本地环境 -->
+            <id>dev</id>
+            <properties>
+                <spring.profile>dev</spring.profile>
+                <nacos.server.address>127.0.0.1:8091</nacos.server.address>
+            </properties>
+            <activation>
+                <!-- 是否默认激活 -->
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!-- 测试环境 -->
+            <id>test</id>
+            <properties>
+                <spring.profile>test</spring.profile>
+                <nacos.server.address>10.129.0.18:8091</nacos.server.address>
+                <nacos.server.namespace>893ab9eb-81b1-4edf-9774-3ee60512864c</nacos.server.namespace>
+            </properties>
+            <activation>
+                <!-- 是否默认激活 -->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
 </project>

@@ -1,0 +1,12 @@
+spring:
+  config:
+    activate:
+      on-profile: test
+  cloud:
+    nacos:
+      discovery:
+        # 命名空间
+        namespace: 893ab9eb-81b1-4edf-9774-3ee60512864c
+      config:
+        # 命名空间
+        namespace: 893ab9eb-81b1-4edf-9774-3ee60512864c
