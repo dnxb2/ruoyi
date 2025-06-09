@@ -1,0 +1,12 @@
+spring:
+  config:
+    activate:
+      on-profile: qfc
+  cloud:
+    nacos:
+      discovery:
+        # 命名空间
+        namespace: f30eb9e2-fb0e-4d70-b9b8-b4676a1bb040
+      config:
+        # 命名空间
+        namespace: f30eb9e2-fb0e-4d70-b9b8-b4676a1bb040
